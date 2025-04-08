@@ -333,21 +333,24 @@ body {
 .footer-content {
     max-width: 1200px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 4rem;
+    display: grid; /* Revert to Grid */
+    grid-template-columns: 40% auto; /* Logo column takes 40%, links take rest */
+    /* Removed gap */
 }
 
 .footer-brand {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    /* Removed flex-basis and flex-shrink */
 }
 
 .footer-links {
+    /* Removed grid-column */
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
+    /* Removed width and margin-left */
 }
 
 .footer-column h4 {
