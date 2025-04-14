@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background Circle -->
+    <circle cx="16" cy="16" r="16" fill="#1B2B34"/>
+    
+    <!-- Aurora Effect -->
+    <path d="M0 16C0 7.16344 7.16344 0 16 0C24.8366 0 32 7.16344 32 16C32 24.8366 24.8366 32 16 32C7.16344 32 0 24.8366 0 16Z" fill="url(#aurora)"/>
+    
+    <!-- Compass Needle -->
+    <path d="M16 6L19 16H13L16 6Z" fill="#1abc9c"/>
+    <path d="M16 26L13 16H19L16 26Z" fill="#9b59b6"/>
+    
+    <!-- Center Point -->
+    <circle cx="16" cy="16" r="2" fill="white"/>
+    
+    <!-- Gradient Definitions -->
+    <defs>
+        <radialGradient id="aurora" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(16 16) rotate(90) scale(16)">
+            <stop offset="0.5" stop-color="#1B2B34" stop-opacity="0"/>
+            <stop offset="0.8" stop-color="#1abc9c" stop-opacity="0.3"/>
+            <stop offset="1" stop-color="#9b59b6" stop-opacity="0.4"/>
+        </radialGradient>
+    </defs>
+</svg> 
