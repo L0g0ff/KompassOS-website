@@ -504,7 +504,39 @@ body {
 .download-actions {
     display: flex;
     justify-content: center;
-    gap: 1rem;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.download-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 220px;
+}
+
+.download-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.download-date {
+    color: var(--text-secondary);
+    font-size: 1em;
+    margin-top: 4px;
+}
+
+@media (max-width: 700px) {
+    .download-actions {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .download-item {
+        min-width: unset;
+    }
 }
 
 /* Engineers Section */
