@@ -622,6 +622,74 @@ body {
     transform: translateY(-2px);
 }
 
+/* On-Demand / ujust Section */
+.ujust {
+    padding: 6rem 2rem;
+}
+
+.ujust h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.ujust-intro {
+    text-align: center;
+    color: var(--text-secondary);
+    max-width: 700px;
+    margin: 0 auto 3rem;
+}
+
+.ujust-intro code {
+    color: var(--primary-color);
+    background: rgba(26, 188, 156, 0.1);
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+}
+
+.ujust-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.ujust-card {
+    background-color: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: var(--transition);
+}
+
+.ujust-card:hover {
+    transform: translateY(-5px);
+}
+
+.ujust-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.ujust-card ul {
+    list-style: none;
+}
+
+.ujust-card li {
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+}
+
+.ujust-card code {
+    color: var(--text-color);
+    background: rgba(27, 43, 52, 0.6);
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+}
+
 /* Download Section */
 .download {
     padding: 6rem 2rem;
@@ -936,7 +1004,8 @@ body {
     }
 
     .tools-grid,
-    .security-grid {
+    .security-grid,
+    .ujust-grid {
         grid-template-columns: 1fr;
     }
 

@@ -26,6 +26,7 @@
                     <a href="#tools">Tools</a>
                     <a href="#apps">Applications</a>
                     <a href="#hardware">Hardware</a>
+                    <a href="#ujust">On-Demand</a>
                     <a href="#download">Download</a>
                 </div>
                 <div class="nav-actions">
@@ -103,15 +104,16 @@
                     <h3>Development Environment</h3>
                     <ul>
                         <li>Visual Studio Code pre-installed</li>
-                        <li>Tilix terminal emulator</li>
+                        <li>Tilix & WezTerm terminals</li>
                         <li>fish, zsh and powershell shells available</li>
+                        <li>DevToolbox & DevPod included</li>
                         <li>Distrobox and Homebrew support</li>
                     </ul>
                 </div>
                 <div class="tool-card">
                     <h3>System Improvements</h3>
                     <ul>
-                        <li>Custom Plymouth theme (tech_b)</li>
+                        <li>Custom Plymouth theme</li>
                         <li>SDDM Numlock enabled</li>
                         <li>Electron apps Wayland fix</li>
                         <li>rpm-ostree base system</li>
@@ -124,38 +126,38 @@
             <h2>Pre-installed Applications</h2>
             <div class="apps-grid">
                 <div class="app-card">
-                    <h3>Browsers & Communication</h3>
+                    <h3>Communication & Business</h3>
                     <ul>
-                        <li>Google Chrome</li>
-                        <li>Firefox</li>
+                        <li>Google Chrome with UWP Support</li>
                         <li>Thunderbird</li>
-                        <li>Kontact</li>
+                        <li>Zoom conferencing</li>
+                        <li>Rambox messaging hub</li>
+                        <li>Citrix Workspace</li>
                     </ul>
                 </div>
                 <div class="app-card">
-                    <h3>Media & Documents</h3>
-                    <ul>
-                        <li>Gwenview image viewer</li>
-                        <li>Okular document viewer</li>
-                        <li>Haruna media player</li>
-                        <li>KCalc calculator</li>
-                    </ul>
-                </div>
-                <div class="app-card">
-                    <h3>System Tools</h3>
+                    <h3>System Management</h3>
                     <ul>
                         <li>Flatseal permissions manager</li>
-                        <li>BoxBuddyRS</li>
+                        <li>DistroShelf</li>
                         <li>Warehouse</li>
                         <li>MissionCenter</li>
                     </ul>
                 </div>
                 <div class="app-card">
+                    <h3>Remote & Peripherals</h3>
+                    <ul>
+                        <li>Input Leap (KVM switch)</li>
+                        <li>KTailctl (Tailscale)</li>
+                        <li>Solaar (Logitech)</li>
+                    </ul>
+                </div>
+                <div class="app-card">
                     <h3>Utilities</h3>
                     <ul>
-                        <li>DejaDup & PikaBackup</li>
-                        <li>KWeather & KClock</li>
-                        <li>KTailctl & Solaar</li>
+                        <li>DejaDup & Vorta backup</li>
+                        <li>Fedora MediaWriter</li>
+                        <li>Skanpage scanner</li>
                         <li>FontDownloader & Embellish</li>
                     </ul>
                 </div>
@@ -196,6 +198,37 @@
             </div>
         </section>
 
+        <section id="ujust" class="ujust">
+            <h2>On-Demand Installation</h2>
+            <p class="ujust-intro">KompassOS includes ready-to-use <code>ujust</code> commands that let you install additional software and configure your system with a single command. Use <code>ujust --choose</code> for an easy interactive menu to browse and select available commands.</p>
+            <div class="ujust-grid">
+                <div class="ujust-card">
+                    <h3>Developer Tools</h3>
+                    <ul>
+                        <li><code>ujust install_claude_code</code></li>
+                        <li><code>ujust install_copilot_cli</code></li>
+                        <li><code>ujust install_vagrant</code></li>
+                    </ul>
+                </div>
+                <div class="ujust-card">
+                    <h3>Networking & VPN</h3>
+                    <ul>
+                        <li><code>ujust install_netextender</code></li>
+                        <li><code>ujust configure_bridge_networking</code></li>
+                        <li><code>ujust remove_bridge_networking</code></li>
+                        <li><code>ujust show_bridge_networking</code></li>
+                    </ul>
+                </div>
+                <div class="ujust-card">
+                    <h3>Hardware & System</h3>
+                    <ul>
+                        <li><code>ujust install_cups_canon</code></li>
+                        <li><code>ujust generate_iso</code></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
         <section id="download" class="download">
             <h2>Get Started with KompassOS</h2>
             <div class="download-content">
@@ -206,7 +239,7 @@
                         <span style="display:block; margin-top: 8px; font-size: 0.9em; color: #95a5a6;">For standard hardware or VMs</span>
                         <div class="download-meta">
                             <a href="https://isos.kompassos.nl/kompassos-dx-hwe.iso-CHECKSUM" class="btn btn-secondary" style="margin-top: 8px;">Checksum</a>
-                            <span class="download-date" style="display:block; margin-top: 8px;">Updated: 18-08-2025</span>
+                            <span class="download-date" style="display:block; margin-top: 8px;">Updated: 11-02-2026</span>
                         </div>
                     </div>
                     <div class="download-item">
@@ -214,7 +247,7 @@
                         <span style="display:block; margin-top: 8px; font-size: 0.9em; color: #e67e22;">For RTX-Series/GTX 16xx only</span>
                         <div class="download-meta">
                             <a href="https://isos.kompassos.nl/kompassos-dx-hwe-nvidia.iso-CHECKSUM" class="btn btn-secondary" style="margin-top: 8px;">Checksum</a>
-                            <span class="download-date" style="display:block; margin-top: 8px;">Updated: 18-08-2025</span>
+                            <span class="download-date" style="display:block; margin-top: 8px;">Updated: 11-02-2026</span>
                         </div>
                     </div>
                     <div class="download-item">
@@ -222,7 +255,7 @@
                         <span style="display:block; margin-top: 8px; font-size: 0.9em; color: #95a5a6;">For Microsoft Surface devices</span>
                         <div class="download-meta">
                             <a href="https://isos.kompassos.nl/kompassos-dx-surface.iso-CHECKSUM" class="btn btn-secondary" style="margin-top: 8px;">Checksum</a>
-                            <span class="download-date" style="display:block; margin-top: 8px;">Updated: 18-08-2025</span>
+                            <span class="download-date" style="display:block; margin-top: 8px;">Updated: 11-02-2026</span>
                         </div>
                     </div>
                 </div>
@@ -254,6 +287,7 @@
                     <a href="#tools">Tools</a>
                     <a href="#apps">Applications</a>
                     <a href="#hardware">Hardware</a>
+                    <a href="#ujust">On-Demand</a>
                 </div>
             </div>
         </div>
