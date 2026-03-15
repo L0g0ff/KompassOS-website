@@ -183,7 +183,18 @@
                         </ul>
                         <p class="supported-devices"><strong>Supported:</strong> Surface Book (1-3), Surface Pro (1,3-10), Surface Laptop series, Surface Go (1-3), Surface Studio</p>
                     </div>
-                    
+
+                    <div class="hardware-card">
+                        <h3>Intel IPU6 Camera (Dell)</h3>
+                        <p>KompassOS includes a fix for the <strong>Intel IPU6 MIPI camera</strong> found in many Dell laptops, using the FOSS libcamera stack via WirePlumber:</p>
+                        <ul>
+                            <li>Enables libcamera support for Dell XPS, Latitude and Precision</li>
+                            <li>Configures WirePlumber, Firefox and Chrome</li>
+                            <li>USB webcams remain functional</li>
+                        </ul>
+                        <p class="supported-devices"><strong>Activate with:</strong> <code>ujust enable-webcam</code></p>
+                    </div>
+
                 </div>
                 
                 <div class="hardware-sources">
@@ -226,6 +237,7 @@
                     <ul>
                         <li><code>ujust install_cups_canon</code></li>
                         <li><code>ujust generate_iso</code></li>
+                        <li><code>ujust enable-webcam</code></li>
                     </ul>
                 </div>
             </div>
