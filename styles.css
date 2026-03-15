@@ -122,6 +122,26 @@ body {
 .nav-actions {
     display: flex;
     gap: 1rem;
+    align-items: center;
+}
+
+.btn-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    background: transparent;
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+.btn-icon:hover {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
 }
 
 /* Button Styles */
