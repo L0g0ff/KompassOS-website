@@ -587,6 +587,19 @@ body {
     left: 0;
 }
 
+.hardware-card li a,
+.hardware-card p a {
+    color: var(--primary-color);
+    text-decoration: underline;
+    text-decoration-color: rgba(26, 188, 156, 0.4);
+    transition: var(--transition);
+}
+
+.hardware-card li a:hover,
+.hardware-card p a:hover {
+    text-decoration-color: var(--primary-color);
+}
+
 .supported-devices {
     background: rgba(26, 188, 156, 0.05);
     padding: 1rem;
