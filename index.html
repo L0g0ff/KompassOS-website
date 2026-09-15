@@ -3,11 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KompassOS - Developer-Friendly KDE Operating System</title>
+    <title>KompassOS — A practical KDE workstation</title>
+    <meta name="description" content="An Aurora-based KDE workstation for developers, system administrators and network engineers.">
     <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="header">
@@ -15,12 +13,12 @@
             <div class="nav-brand">
                 <img src="assets/kompassos.svg" alt="KompassOS Logo" class="logo">
             </div>
-            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+            <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-navigation">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
-            <div class="nav-container">
+            <div class="nav-container" id="mobile-navigation">
                 <div class="nav-links">
                     <a href="#features">Features</a>
                     <a href="#tools">Tools</a>
@@ -45,11 +43,12 @@
     <main>
         <section class="hero">
             <div class="hero-content">
-                <h1>Developer-Friendly KDE Operating System</h1>
-                <p>KompassOS builds upon Aurora, specifically tailored for DevOps engineers, System Administrators and Network Engineers. Get a ready-to-use workstation with all the tools you need without extensive configuration.</p>
+                <p class="eyebrow">Fedora Atomic · KDE Plasma · Built for work</p>
+                <h1>A practical KDE workstation for technical work.</h1>
+                <p>KompassOS builds on Aurora and adds the tools, hardware support and sensible defaults used by developers, system administrators and network engineers.</p>
                 <div class="hero-actions">
-                    <a href="#download" class="btn btn-primary">Download Now</a>
-                    <a href="#features" class="btn btn-secondary">Learn More</a>
+                    <a href="#download" class="btn btn-primary">Download an ISO</a>
+                    <a href="#features" class="btn btn-secondary">See what's included</a>
                 </div>
             </div>
             <div class="hero-image">
@@ -61,24 +60,20 @@
             <h2>Core Features</h2>
             <div class="feature-grid">
                 <div class="feature-card">
-                    <img src="assets/icon-cloud.svg" alt="KDE Icon">
-                    <h3>KDE-Exclusive</h3>
-                    <p>Built exclusively on KDE Plasma desktop environment, optimized for the best development experience.</p>
+                    <h3>KDE Plasma</h3>
+                    <p>A focused KDE environment built on the Aurora Developer Experience image.</p>
                 </div>
                 <div class="feature-card">
-                    <img src="assets/icon-speed.svg" alt="Update Icon">
-                    <h3>Automatic Updates</h3>
-                    <p>Background system updates with rollback support for up to 3 previous versions.</p>
+                    <h3>Atomic updates</h3>
+                    <p>Background image updates with previous deployments available for rollback.</p>
                 </div>
                 <div class="feature-card">
-                    <img src="assets/icon-security.svg" alt="Security Icon">
-                    <h3>Enhanced Security</h3>
-                    <p>Pre-installed Keeper Password Manager, SSH privileged ports fix, Tailscale VPN support, and OpenSnitch application firewall.</p>
+                    <h3>Practical security</h3>
+                    <p>Keeper Password Manager, hardened SSH port handling and the OpenSnitch application firewall.</p>
                 </div>
                 <div class="feature-card">
-                    <img src="assets/icon-collab.svg" alt="Build Icon">
-                    <h3>Three Builds Available</h3>
-                    <p>Choose between HWE for standard hardware, NVIDIA-optimized for RTX-Series/GTX 16xx, or Surface-optimized builds.</p>
+                    <h3>Three hardware builds</h3>
+                    <p>Standard HWE, NVIDIA and Microsoft Surface images maintained from one shared configuration.</p>
                 </div>
             </div>
         </section>
@@ -120,7 +115,7 @@
                     <h3>System Improvements</h3>
                     <ul>
                         <li>Custom Plymouth theme</li>
-                        <li>SDDM Numlock enabled</li>
+                        <li>Plasma Login Manager compatibility safeguards</li>
                         <li>Electron apps Wayland fix</li>
                         <li>rpm-ostree base system</li>
                     </ul>
@@ -134,7 +129,7 @@
                 <div class="app-card">
                     <h3>Communication & Business</h3>
                     <ul>
-                        <li>Google Chrome with UWP Support</li>
+                        <li>Google Chrome</li>
                         <li>Thunderbird</li>
                         <li>Zoom conferencing</li>
                         <li>Ferdium messaging hub</li>
@@ -236,27 +231,26 @@
                 <div class="ujust-card">
                     <h3>Developer Tools</h3>
                     <ul>
-                        <li><code>ujust install_claude_code</code></li>
-                        <li><code>ujust install_codex_cli</code></li>
-                        <li><code>ujust install_gemini_cli</code></li>
-                        <li><code>ujust install_copilot_cli</code></li>
-                        <li><code>ujust install_vagrant</code></li>
+                        <li><code>ujust install-claude-code</code></li>
+                        <li><code>ujust install-codex-cli</code></li>
+                        <li><code>ujust install-gemini-cli</code></li>
+                        <li><code>ujust install-copilot-cli</code></li>
+                        <li><code>ujust install-vagrant</code></li>
                     </ul>
                 </div>
                 <div class="ujust-card">
-                    <h3>Networking & VPN</h3>
+                    <h3>Networking</h3>
                     <ul>
-                        <li><code>ujust install_netextender</code></li>
-                        <li><code>ujust configure_bridge_networking</code></li>
-                        <li><code>ujust remove_bridge_networking</code></li>
-                        <li><code>ujust show_bridge_networking</code></li>
+                        <li><code>ujust setup-bridge</code></li>
+                        <li><code>ujust remove-bridge</code></li>
+                        <li><code>ujust bridge-status</code></li>
                     </ul>
                 </div>
                 <div class="ujust-card">
                     <h3>Hardware & System</h3>
                     <ul>
-                        <li><code>ujust install_cups_canon</code></li>
-                        <li><code>ujust generate_iso</code></li>
+                        <li><code>ujust install-cups-canon</code></li>
+                        <li><code>ujust generate-iso-kompassos-dx-hwe</code></li>
                         <li><code>ujust enable-webcam</code></li>
                         <li><code>ujust enable-phone-webcam</code></li>
                     </ul>
@@ -294,21 +288,22 @@
                         </div>
                     </div>
                 </div>
-                <div class="internet-setup-info" style="margin-top:2.5rem;max-width:600px;margin-left:auto;margin-right:auto;text-align:center;background:rgba(27,43,52,0.7);padding:1.5rem 2rem;border-radius:12px;">
-                    <h3 style="margin-top:0;margin-bottom:0.5rem;color:#1abc9c;">Internet Connection</h3>
+                <div class="install-notes">
+                <div class="internet-setup-info">
+                    <h3>Internet Connection</h3>
                     <p>For the best out-of-the-box experience, it's important to properly configure your internet connection during the installation.</p>
-                    <p style="margin-top:1rem;">If you had no internet during setup, connect first and then run these commands to install all flatpaks:</p>
-                    <div style="text-align:center;margin-top:0.75rem;background:rgba(0,0,0,0.3);border-radius:8px;padding:0.75rem 1rem;font-size:0.9em;">
+                    <p>If you had no internet during setup, connect first and then run this command to install all Flatpaks:</p>
+                    <div class="command-block">
                         <code>ujust install-kompassos-flatpaks</code>
                     </div>
                 </div>
                 
-                <div class="secure-boot-info" style="margin-top:1.5rem;max-width:600px;margin-left:auto;margin-right:auto;text-align:center;background:rgba(27,43,52,0.7);padding:1.5rem 2rem;border-radius:12px;">
-                    <h3 style="margin-top:0;margin-bottom:0.5rem;color:#1abc9c;">Secure Boot Information</h3>
+                <div class="secure-boot-info">
+                    <h3>Secure Boot Information</h3>
                     <p>If your hardware has secure boot enabled then enroll Universal Blue's secure boot key during the installation process by selecting <b>"Enroll MOK"</b> when prompted.</p>
                     <p>The secure boot password is: <b>universalblue</b></p>
-                    <hr style="margin:2rem 0;opacity:0.2;">
-                    <p><span style="color:#e67e22;">Installation note: "Root Account" should stay disabled.</span></p>
+                    <p class="install-warning">Installation note: “Root Account” should stay disabled.</p>
+                </div>
                 </div>
             </div>
         </section>
@@ -336,7 +331,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 KompassOS. Built with 💙 on Aurora, optimized for you!</p>
+            <p>&copy; 2026 KompassOS. Built on Aurora.</p>
         </div>
     </footer>
 
