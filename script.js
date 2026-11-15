@@ -23,3 +23,16 @@ if (toggle && nav) {
         }
     });
 }
+
+// Scroll reveal + terminal typing; skipped entirely when the user prefers reduced motion.
+if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.documentElement.classList.add('js');
+    document.querySelectorAll('.ujust-card :is(h3, li)').forEach((line, i) => line.style.setProperty('--i', i));
+    const observer = new IntersectionObserver(entries => {
+        entries.filter(entry => entry.isIntersecting).forEach(entry => {
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target);
+        });
+    }, { rootMargin: '0px 0px -15% 0px' });
+    document.querySelectorAll('main > section:not(.hero)').forEach(section => observer.observe(section));
+}

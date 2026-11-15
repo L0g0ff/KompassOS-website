@@ -19,13 +19,13 @@ This is a static website with no build system, package manager, or dependencies.
 Three source files make up the entire site:
 
 - **`index.html`** — Single-page layout with sections: hero, features, dev tools, apps, hardware support, download. Navigation anchors link to section IDs (`#features`, `#tools`, `#apps`, `#hardware`, `#download`).
-- **`styles.css`** — All styling. Uses CSS custom properties defined in `:root` for theming (primary: `#1abc9c`, accent: `#9b59b6`, background: `#1B2B34`). Glassmorphism effects via `backdrop-filter: blur()`. Responsive breakpoints at 768px and 1200px.
-- **`script.js`** — Vanilla JS for: mobile hamburger menu toggle, smooth scroll navigation, header hide/show on scroll direction, and scroll-triggered fade-in animations (dynamically injected CSS).
+- **`styles.css`** — All styling. Uses CSS custom properties defined in `:root` for theming (accent: `#1abc9c`, background: `#111a20`). Motion is CSS-only: aurora backdrop, 3D hero screenshot, scroll progress bar and compass needle. The scroll-linked parts use scroll-driven animations inside `@supports (animation-timeline: scroll())`; other browsers get the static layout. Single responsive breakpoint at 900px.
+- **`script.js`** — Vanilla JS for the mobile menu toggle, plus an `IntersectionObserver` that adds `.in-view` to sections (scroll reveal and the terminal typing animation). It sets `.js` on `<html>` only when reduced motion is not requested.
 
 ## Key Conventions
 
 - Pure HTML/CSS/JS — no frameworks, preprocessors, or bundlers
-- Font: Inter (loaded from Google Fonts)
-- Some CSS comments are in Dutch (e.g., "Navigatiebalk aanpassing")
+- Fonts: system Noto Sans / Noto Sans Mono stack, no web fonts
+- All motion must respect `prefers-reduced-motion`
 - Commit messages follow conventional format: `add:`, `fix:`, `change:`, `remove:`
 - Assets live in `assets/` (SVG icons, PNG hero image, logos)

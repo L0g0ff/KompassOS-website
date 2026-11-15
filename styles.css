@@ -56,12 +56,13 @@ code {
 }
 
 .header {
-    background: rgba(17, 26, 32, 0.97);
+    background: var(--background);
     border-bottom: 1px solid var(--border);
     left: 0;
+    padding-top: 3px;
     position: fixed;
     right: 0;
-    top: 3px;
+    top: 0;
     z-index: 1000;
 }
 
@@ -248,7 +249,7 @@ main > section > h2,
 .feature-grid,
 .tools-grid,
 .apps-grid,
-.ujust-grid {
+.terminal {
     margin-left: auto;
     margin-right: auto;
     max-width: var(--content-width);
@@ -326,9 +327,6 @@ h3 {
 }
 
 .ujust-grid {
-    background: #0c1419;
-    border: 1px solid var(--border);
-    border-radius: 5px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 }
@@ -345,7 +343,7 @@ h3 {
 
 .ujust-card h3::before {
     color: var(--accent);
-    content: "$ ";
+    content: "# ";
     font-family: "Noto Sans Mono", "Cascadia Mono", monospace;
 }
 
@@ -673,5 +671,249 @@ h3 {
     *::before,
     *::after {
         transition-duration: 0.01ms !important;
+    }
+}
+
+/* Aurora backdrop: transform-only animation, no blur filter (cheap on phones) */
+main {
+    isolation: isolate;
+    overflow-x: clip;
+    position: relative;
+}
+
+.aurora {
+    height: 900px;
+    inset: 0 0 auto;
+    mask-image: linear-gradient(#000 50%, transparent);
+    overflow: hidden;
+    pointer-events: none;
+    position: absolute;
+    z-index: -1;
+}
+
+.aurora::before,
+.aurora::after {
+    content: "";
+    inset: -30%;
+    position: absolute;
+    will-change: transform;
+}
+
+.aurora::before {
+    animation: aurora-a 24s ease-in-out infinite alternate;
+    background:
+        radial-gradient(ellipse 34% 26% at 28% 42%, rgba(26, 188, 156, 0.34), transparent 70%),
+        radial-gradient(ellipse 28% 32% at 74% 36%, rgba(155, 89, 182, 0.4), transparent 70%);
+}
+
+.aurora::after {
+    animation: aurora-b 32s ease-in-out infinite alternate;
+    background:
+        radial-gradient(ellipse 24% 30% at 56% 30%, rgba(53, 208, 178, 0.22), transparent 70%),
+        radial-gradient(ellipse 30% 22% at 36% 62%, rgba(155, 89, 182, 0.24), transparent 70%);
+}
+
+@keyframes aurora-a {
+    to { transform: translate(8%, 5%) rotate(8deg) scale(1.15); }
+}
+
+@keyframes aurora-b {
+    to { transform: translate(-10%, -4%) rotate(-10deg) scale(1.2); }
+}
+
+/* Hero screenshot: tilted in 3D, flattens while scrolling */
+.hero-image {
+    box-shadow: 0 40px 90px -30px rgba(26, 188, 156, 0.55), 0 0 70px -20px rgba(155, 89, 182, 0.6);
+    transform: perspective(1400px) rotateY(-16deg) rotateX(5deg);
+}
+
+.hero-image img {
+    aspect-ratio: 1920 / 1199;
+}
+
+.hero .btn-primary {
+    box-shadow: 0 0 28px -6px var(--accent);
+}
+
+/* Compass: scroll indicator and back-to-top link */
+.compass {
+    bottom: 1.25rem;
+    height: 48px;
+    position: fixed;
+    right: 1.25rem;
+    width: 48px;
+    z-index: 900;
+}
+
+.compass svg {
+    display: block;
+    fill: var(--surface);
+    stroke: var(--border);
+}
+
+.compass:hover svg,
+.compass:focus-visible svg {
+    stroke: var(--accent);
+}
+
+.compass-needle {
+    stroke: none;
+    transform-origin: 16px 16px;
+}
+
+body::before {
+    background: linear-gradient(90deg, var(--accent), #9b59b6);
+}
+
+@supports (animation-timeline: scroll()) {
+    body::before {
+        animation: progress linear both;
+        animation-timeline: scroll(root);
+        transform-origin: 0 50%;
+    }
+
+    .hero-image {
+        animation: flatten linear both;
+        animation-timeline: scroll(root);
+        animation-range: 0 var(--flatten-end, 450px);
+    }
+
+    .compass-needle {
+        animation: spin linear both;
+        animation-timeline: scroll(root);
+    }
+}
+
+@keyframes progress {
+    from { transform: scaleX(0); }
+}
+
+@keyframes flatten {
+    to { transform: perspective(1400px) rotateY(0deg) rotateX(0deg); }
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Terminal window around the ujust commands */
+.terminal {
+    background: #0c1419;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: 0 30px 70px -40px rgba(26, 188, 156, 0.5);
+    overflow: hidden;
+}
+
+.terminal-bar {
+    align-items: center;
+    background: var(--surface-raised);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 0.45rem;
+    padding: 0.6rem 0.9rem;
+}
+
+.terminal-bar span {
+    background: var(--border);
+    border-radius: 50%;
+    height: 11px;
+    width: 11px;
+}
+
+.terminal-bar p,
+.terminal-prompt {
+    color: var(--muted);
+    font-family: "Noto Sans Mono", "Cascadia Mono", monospace;
+    font-size: 0.82rem;
+}
+
+.terminal-bar p {
+    margin: 0 auto;
+    padding-right: 2.6rem;
+}
+
+.terminal-prompt {
+    border-bottom: 1px solid var(--border);
+    font-size: 0.95rem;
+    padding: 1rem 1.5rem;
+}
+
+.terminal-prompt::before {
+    color: var(--accent);
+    content: "$ ";
+}
+
+.terminal-prompt code {
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    border-right: 0.55em solid var(--accent);
+    display: inline-block;
+    font-size: 1em;
+    overflow: hidden;
+    padding: 0;
+    vertical-align: bottom;
+    white-space: nowrap;
+    width: calc(14ch + 0.55em); /* 14 = length of "ujust --choose" */
+}
+
+.ujust-card code {
+    overflow-wrap: anywhere;
+}
+
+/* Scroll reveal; .js is only set by script.js when motion is allowed */
+.js main > section:not(.hero) > * {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 600ms ease, transform 600ms ease;
+}
+
+.js main > section.in-view > * {
+    opacity: 1;
+    transform: none;
+}
+
+.js .in-view .terminal-prompt code {
+    animation: type 1s steps(14) 500ms backwards, blink 1s step-end 1.5s infinite;
+}
+
+.js .in-view .ujust-card :is(h3, li) {
+    animation: line-in 300ms ease backwards;
+    animation-delay: calc(1.6s + var(--i) * 80ms);
+}
+
+@keyframes type {
+    from { width: 0.55em; }
+}
+
+@keyframes blink {
+    50% { border-right-color: transparent; }
+}
+
+@keyframes line-in {
+    from { opacity: 0; transform: translateY(4px); }
+}
+
+@media (max-width: 900px) {
+    .aurora {
+        height: 700px;
+    }
+
+    .hero-image {
+        --flatten-end: 320px;
+        transform: perspective(900px) rotateX(16deg);
+    }
+
+    .ujust-card code {
+        font-size: 0.8em;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
     }
 }
