@@ -372,10 +372,34 @@ h3 {
     padding: 0.45rem 0;
 }
 
-.hardware-notice {
+.webcam-highlight {
+    border-left: 3px solid var(--accent);
+    margin: 0 auto 3rem;
+    max-width: calc(var(--content-width) - 3rem);
+    padding: 1.5rem;
+}
+
+.webcam-highlight h2 {
+    margin-bottom: 1rem;
+}
+
+.webcam-highlight > p:not(.eyebrow) {
     color: var(--muted);
-    margin-bottom: 2.75rem;
-    max-width: 52rem;
+    max-width: 65ch;
+}
+
+.webcam-highlight .btn {
+    margin-top: 1.25rem;
+    min-height: 44px;
+}
+
+#ipu6-webcam code {
+    overflow-wrap: anywhere;
+}
+
+#ipu6-webcam ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .hardware-grid {

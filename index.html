@@ -64,6 +64,13 @@
             </div>
         </section>
 
+        <aside class="webcam-highlight" aria-labelledby="webcam-highlight-title">
+            <p class="eyebrow">Fedora 45 · Hardware update</p>
+            <h2 id="webcam-highlight-title">IPU6 webcam missing after upgrading?</h2>
+            <p>An opt-in workaround targets affected Intel IPU6 laptops with an HM1092 IR sensor, including the Dell XPS 14 9440. New OV02C10 colour tuning and optional CPU image processing also address washed-out colours and purple-line artefacts.</p>
+            <a href="#ipu6-webcam" class="btn btn-secondary">View webcam setup instructions →</a>
+        </aside>
+
         <section id="features" class="features">
             <h2>Core Features</h2>
             <div class="feature-grid">
@@ -176,9 +183,7 @@
         <section id="hardware" class="hardware">
             <div class="hardware-content">
                 <h2>Specialized Hardware Support</h2>
-                <div class="hardware-notice">
-                    <p>While Universal Blue announced they're discontinuing HWE (Hardware Enablement) images for ASUS and Surface devices from Fedora 43 onwards, <strong>KompassOS continues providing dedicated support</strong> for these specialized hardware platforms.</p>
-                </div>
+
                 
                 <div class="hardware-grid">
                     <div class="hardware-card">
@@ -189,20 +194,23 @@
                             <li>Touch and pen input processing</li>
                             <li>Camera support with Intel ISP processing</li>
                             <li>Complete device compatibility matrix</li>
-                            <li>Custom <code>libwacom-surface</code> build for Fedora 44 (needed for the Surface Pen), hosted on our mirror while the <a href="https://github.com/linux-surface/libwacom-surface/issues/24" target="_blank" rel="noopener">upstream issue</a> is unresolved</li>
+
                         </ul>
                         <p class="supported-devices"><strong>Supported:</strong> Surface Book (1-3), Surface Pro (1,3-10), Surface Laptop series, Surface Go (1-3), Surface Studio</p>
                     </div>
 
-                    <div class="hardware-card">
+                    <div id="ipu6-webcam" class="hardware-card">
                         <h3>Intel IPU6 Camera (Dell)</h3>
-                        <p>KompassOS includes a fix for the <strong>Intel IPU6 MIPI camera</strong> found in many Dell laptops, using the FOSS libcamera stack via WirePlumber:</p>
-                        <ul>
-                            <li>Enables libcamera support for Dell XPS, Latitude and Precision</li>
-                            <li>Configures WirePlumber, Firefox and Chrome</li>
-                            <li>USB webcams remain functional</li>
-                        </ul>
-                        <p class="supported-devices"><strong>Activate with:</strong> <code>ujust enable-webcam</code></p>
+                        <p>FOSS libcamera support via WirePlumber for compatible Dell XPS, Latitude and Precision cameras. USB webcams remain functional.</p>
+                        <p><strong>Before starting:</strong> update to a KompassOS image containing the fix and reboot. The commands below must be available in your installed image.</p>
+                        <ol>
+                            <li>Run <code>ujust enable-webcam</code> and follow its browser or Teams for Linux instructions. Optional CPU processing avoids purple-line artefacts at the cost of extra CPU use.</li>
+                            <li>If the camera disappeared on Fedora 45 and your laptop has an HM1092 IR sensor, run <code>ujust enable-webcam-hm1092-fix</code>. This is an additional workaround, not a requirement for every IPU6 camera.</li>
+                            <li>With Secure Boot enabled, follow the command's instructions to enrol the separate <strong>KompassOS MOK key</strong>. Choose a one-time password and use it in MOK Manager at the next boot; this is not the Universal Blue installation password.</li>
+                            <li>Reboot after enabling the HM1092 workaround, then run <code>ujust check-webcam</code> to inspect camera detection and configuration.</li>
+                        </ol>
+                        <p>OV02C10 tuning improves colour and contrast. Hardware and application support vary; the workaround does not enable the Windows Hello IR camera.</p>
+                        <p><strong>Undo:</strong> <code>ujust disable-webcam-hm1092-fix</code> and reboot to restore the stock module. <code>ujust disable-webcam</code> separately removes the libcamera configuration; revert browser settings manually.</p>
                     </div>
 
                     <div class="hardware-card">
@@ -222,11 +230,11 @@
                 <div class="hardware-sources">
                     <h4>Sources & References</h4>
                     <div class="sources-grid">
-                        <a href="https://universal-blue.discourse.group/t/deprecation-notice-for-base-asus-and-surface-images/6589" target="_blank" rel="noopener">Universal Blue HWE Deprecation Notice</a>
-                        <a href="https://universal-blue.discourse.group/t/stargazers-1-aurora-july-status-update/9769" target="_blank" rel="noopener">Aurora July Status Update</a>
+
                         <a href="https://github.com/linux-surface/linux-surface" target="_blank" rel="noopener">Linux Surface Project</a>
                         <a href="https://github.com/linux-surface/linux-surface/wiki/Supported-Devices-and-Features#feature-matrix" target="_blank" rel="noopener">Surface Feature Matrix</a>
-                        <a href="https://github.com/linux-surface/libwacom-surface/issues/24" target="_blank" rel="noopener">Upstream libwacom-surface / Fedora 44 Issue</a>
+                        <a href="https://github.com/L0g0ff/KompassOS/issues/117" target="_blank" rel="noopener">Fedora 45 IPU6 Webcam Regression</a>
+                        <a href="https://github.com/L0g0ff/KompassOS/pull/120" target="_blank" rel="noopener">OV02C10 Tuning and CPU Processing</a>
                     </div>
                 </div>
             </div>
